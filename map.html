@@ -4,17 +4,17 @@
 
 <head>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-	<script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script>
-	<link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' />
+        <meta charset='utf-8'>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' />
 
-        <link rel="stylesheet" href="main.css" />
+        <link rel='stylesheet' href='main.css' />
 
         <title>Music Map | Welcome</title>
 
 
-	<title></title>
+    <title></title>
 </head>
 
 
@@ -38,22 +38,28 @@
 
           map.addControl(new mapboxgl.NavigationControl());
 
-
-          /*
           map.on('load', function () {
+            // Add a layer showing the state polygons.
             map.addLayer({
                 'id': 'states-layer',
                 'type': 'fill',
                 'source': {
                     'type': 'geojson',
                     'data': 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_admin_1_states_provinces_shp.geojson'
-                },
-                'paint': {
-                    'fill-color': 'rgba(200, 100, 240, 0.4)',
-                    'fill-outline-color': 'rgba(200, 100, 240, 1)'
-                }
+                }//,
+                //'paint': {
+                //    'fill-color': 'rgba(200, 100, 240, 0.4)',
+                //    'fill-outline-color': 'rgba(200, 100, 240, 1)'
+                //}
             });
-            */
+
+            map.on('click', 'states-layer', function (e) {
+                new mapboxgl.Popup()
+                    .setLngLat(e.lngLat)
+                    .setHTML(e.features[0].properties.name)
+                    .addTo(map);
+            });
+        });    
         </script>
 
 
