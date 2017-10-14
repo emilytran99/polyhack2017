@@ -1,4 +1,19 @@
-map {
-	position: absolute;
-	padding: 10px 10px 10px 10px;
+h1{
+	font-size: 40px;
+	text-align: center;
+	line-height: 25px;
+	font-family: Georgia;
+	text-shadow: 2px 2px #93B7BE;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-top: -10px 0px -10px 0px;
+}
+
+#container {
+	margin-top: 20px;
+	padding: 0px 10px 0px 10px;
+}
+
+#map {
+	margin: 0 auto;
 }

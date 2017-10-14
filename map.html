@@ -5,14 +5,13 @@
 <head>
 
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Music Locations | Welcome</title>
-
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 	<script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' />
 
         <link rel="stylesheet" href="main.css" />
 
+        <title>Music Map | Welcome</title>
 
 
 	<title></title>
@@ -21,8 +20,12 @@
 
 
 <body>
+        <h1>Music Map</h1>
 
-        <div id='map' style='width: 1200px; height: 600px;'></div>
+        <div id='container'>
+                <div id='map' style='width: 1200px; height: 600px;'></div>
+        </div>
+
         <script>
           mapboxgl.accessToken = 'pk.eyJ1IjoiZW1pbHl0cmFuIiwiYSI6ImNqOHFqa3NqMzBrdG0yd21wZHA1a3RvZ20ifQ.-mJjwKIlq7rwYiw8f9R5EQ';
           var map = new mapboxgl.Map({
@@ -32,6 +35,25 @@
             hash: true,
             center: [37.0902, 95.7129]
           });
+
+          map.addControl(new mapboxgl.NavigationControl());
+
+
+          /*
+          map.on('load', function () {
+            map.addLayer({
+                'id': 'states-layer',
+                'type': 'fill',
+                'source': {
+                    'type': 'geojson',
+                    'data': 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_admin_1_states_provinces_shp.geojson'
+                },
+                'paint': {
+                    'fill-color': 'rgba(200, 100, 240, 0.4)',
+                    'fill-outline-color': 'rgba(200, 100, 240, 1)'
+                }
+            });
+            */
         </script>
 
 
